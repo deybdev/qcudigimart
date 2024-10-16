@@ -706,7 +706,166 @@ footer{
 
 /* UPDATE PROFILE START */
 
+.update-profile-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+    margin: 50px auto;
+    max-width: 1000px;
+}
 
+
+.profile-section, .saved-products, .recently-viewed {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Section on the Left */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-section h2 {
+    margin: 25px;
+}
+
+.profile-pic {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-top: 30px;
+    border: 3px solid;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.edit-pic {
+    position: absolute;
+    border: 1px solid #ccc;
+    bottom: 1px;
+    right: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px 8px;
+    cursor: pointer;
+}
+
+.profile-info {
+    width: 100%;
+}
+
+.profile-info label {
+    display: block;
+    text-align: left;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.profile-info input {
+    width: 100%;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #cc2c2c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #a32121;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Saved Products */
+.saved-products {
+    width: 250px;
+}
+
+.saved-products-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.saved-products h1 {
+    font-size: 48px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.saved-products i{
+    font-size: 40px;
+    float: right;
+}
+
+.saved-products p {
+    font-size: 15px;
+    margin: 6px 0;
+}
+
+.saved-products a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.saved-products a:hover {
+    text-decoration: underline;
+}
+
+/* Recently Viewed */
+.recently-viewed ul {
+    list-style: none;
+    margin-top: 30px;
+}
+
+.recently-viewed ul li {
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.item-title {
+    font-weight: bold;
+}
+
+.item-date {
+    color: gray;
+    margin-top: 10px;
+}
+
+.recently-viewed button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
 /* UPDATE PROFILE END */
 
@@ -726,6 +885,15 @@ footer{
 
 
 /* SOME STUFF START*/
+
+.btn{
+    background-color: #cc2c2c;
+    color: #fff;
+}
+
+.btn:hover{
+    background-color: #a32121;
+}
 
 @keyframes moving {
     0% {
