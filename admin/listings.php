@@ -6,10 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include'../main/header.php'; ?>
-    <div class="seller-dashboard">
-       
-    </div>
-    <?php include'../main/footer.php'; ?>
+
+<?php include'sidebar.php'; ?>
+    
 </body>
 </html>

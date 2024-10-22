@@ -28,10 +28,9 @@
                             <a href="forgot.php" class="forgot">Forgot Password</a>
                         </div>
                         <?php
-                        // Display the message if it exists
                         if (isset($_SESSION['message'])) {
                             echo '<div class="alert-message"><p><i class="fa-solid fa-circle-exclamation"></i>' . $_SESSION['message'] . '</p></div>';
-                            unset($_SESSION['message']); // Clear the message after displaying it
+                            unset($_SESSION['message']);
                         }
                         ?>
                         <div class="form-element">
@@ -39,7 +38,7 @@
                         </div>
                         <div class="form-element">
                             <hr>
-                            <p>Don't have an account? <a href="../uploads/login.php">Register</a></p>
+                            <p>Don't have an account? <a href="../uploads/register.php">Register</a></p>
                         </div>
                     </div>
                 </form>

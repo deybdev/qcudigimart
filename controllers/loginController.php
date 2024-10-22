@@ -26,6 +26,8 @@ if (isset($_POST['login'])) {
         } elseif ($result['user_type'] == 'seller') {
             header("location: ../seller/dashboard.php");
             exit();
+        }elseif($result['user_type'] == 'admin'){
+            header("location: ../admin/dashboard.php");
         }
     } else {
         // Store the error message in the session

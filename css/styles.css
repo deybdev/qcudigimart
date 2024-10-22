@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
+:root{
+    --btn-color: #1f2e6c;
+    --btn-hover: #030d36;
+
+    --bg-color: #fff;
+    --text-color: #1f2e6c;
+    --link-text-size: 400;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -10,6 +19,11 @@
 html {  
     scroll-behavior: smooth;
     overflow-x: hidden;
+    height: 100%;
+}
+body{
+    height: 100%;
+    background-color: var(--bg-color);
 }
 
 ::-webkit-scrollbar {
@@ -151,7 +165,7 @@ section{
     padding: 12px 15px;
     font-size: 1.5em;
     color: #fff;
-    border: 2px solid #fff;
+    border: 2px solid var(--btn-color);
     border-radius: 50%;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -399,7 +413,7 @@ footer{
     align-items: center;
     height: 120px;
     width: aut0;
-    background-color: #E8E6E6;
+    background-color: rgb(248, 248, 248);
 }
 
 .logo-container{
@@ -415,6 +429,32 @@ footer{
 .logo-container .text-logo h1{
     font-size: 23px;
     margin-left: 10px;
+}
+
+.hamburger {
+        display: none;
+        margin-left: 25px;
+        cursor: pointer;
+}
+    
+.hamburger div {
+        width: 26px;
+        height: 3px;
+        background-color: black;
+        margin: 5px 0;
+        transition: 0.4s;
+}
+
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -5px);
 }
 
 .nav-menu-links {
@@ -503,6 +543,7 @@ footer{
 }
 
 .submenu-wrap{
+    z-index: 3;
     position: absolute;
     top: 100%;
     right: 5%;
@@ -585,7 +626,7 @@ footer{
 
 /* FORM DESIGN START */
 .form-container{
-    background-color: #f5f1f1;
+    background-color: var(--bg-color);
 }
 
 .form-wrapper .note-container{
@@ -606,6 +647,7 @@ footer{
     padding: 30px;
     margin: 20px auto;
     width: 500px;
+    border-radius: 10px;
     border: 1px solid #ccc;
     height: auto;
     background: #fff;
@@ -653,26 +695,20 @@ footer{
 .form-box .form .form-element button {
     width: 100%;
     border: none;
-    color: #fff;
     font-size: 15px;
     border-radius: 5px;
-    background-color: #cc2c2c;
     cursor: pointer;
     padding: 12px;
     transition: background 0.2s ease;
 }
 
 
-.form-box .form .form-element button:hover{
-    background: #dd3c3c;
-}
-
 .form-box .form .form-element input{
     margin-top: 8px;
 }
 
 .form-box .form .form-element a {
-    color: #000000;
+    color: var(--text-color);
     text-decoration: underline;
     font-weight: 600;
 }
@@ -741,10 +777,11 @@ footer{
     height: 120px;
     border-radius: 50%;
     margin-top: 30px;
-    border: 3px solid;
+    border: 2px solid;  
 }
 
 .profile-pic img {
+    border-radius: 50%;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -752,10 +789,11 @@ footer{
 
 .edit-pic {
     position: absolute;
+    z-index: 1;
     border: 1px solid #ccc;
     bottom: 1px;
     right: 5px;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 50%;
     padding: 5px 8px;
     cursor: pointer;
@@ -783,7 +821,6 @@ footer{
 
 button {
     padding: 10px 20px;
-    background-color: #cc2c2c;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -791,11 +828,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
-button:hover {
-    background-color: #a32121;
-}
-
 .right-section {
     display: flex;
     flex-direction: column;
@@ -869,30 +901,112 @@ button:hover {
 
 /* UPDATE PROFILE END */
 
+/* ABOUT START */
+.about-container {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    height: 151.5vh; 
+}
+
+.about-left-section {
+    height: 100vh;
+    flex: 1;
+    position: sticky;
+    top: 0;
+}
+
+.about-left-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-right-section {
+    padding: 50px;
+    flex: 1;
+    background-color: #ffef94;
+    overflow-y: scroll;
+}
+
+/* ABOUT Section Styling */
+.about-right-section h1 {
+    font-size: 4rem;
+    color: #2e2e2e;
+    margin-bottom: 20px;
+}
+
+.about-right-section p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: #464545;
+}
+
+/* Team Section */
+.team-section {
+    margin-top: 40px;
+}
+
+.team-section h2 {
+    text-align: center;
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 70px;
+    margin-top: 70px;
+}
 
 
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
 
+.team-member {
+    text-align: center;
+}
 
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border: 4px solid #000;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
+.team-member h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 10px;
+}
 
+.team-member p {
+    font-size: 1rem;
+    color: #505050;
+}
 
+.team-grid .team-member:first-child {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-
-
-
-
-
-
+.team-grid .team-member:not(:first-child) {
+    flex-basis: calc(33.333% - 20px);
+    box-sizing: border-box;
+}
 
 /* SOME STUFF START*/
 
 .btn{
-    background-color: #cc2c2c;
+    background-color: var(--btn-color);
     color: #fff;
 }
 
 .btn:hover{
-    background-color: #a32121;
+    background-color: var(--btn-hover);
 }
 
 @keyframes moving {
@@ -917,6 +1031,53 @@ button:hover {
 
 /* MEDIA QUERY 1024: RESPONSIVE */
 @media only screen and (max-width: 1024px) {
+
+    .logo-container .text-logo h1 {
+        font-size: 16px;
+    }
+
+    .nav-links {   
+        position: absolute;
+        top: 93%; 
+        left: 15%; 
+        width: 200px;
+        opacity: 0;
+        height: auto;
+        transform: translateX(-20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        pointer-events: none;
+        z-index: 2;
+    }
+    
+    .nav-links.active {
+        opacity: 1;
+        transform: translateX(0); 
+        pointer-events: auto;
+    }
+    
+
+    .nav-links ul {
+        position: absolute;
+        flex-direction: column;
+        margin-right: 0;
+        top: 93%;
+        background-color: #acacac;
+        line-height: 40px;
+        right: 80%;;
+        padding: 100px 50px ;
+    }
+
+    .nav-links ul li {
+        text-align: center;
+    }
+
+    .search-bar{
+        margin-right: 40px;
+    }
+
+    .hamburger{
+        display: block;
+    }
 
     .home h1{
         font-size: 130px;
@@ -957,6 +1118,58 @@ button:hover {
         display: block;
         height: 250px;
 
+    }
+
+    .update-profile-container {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-section {
+        width: 70%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .profile-info input {
+        font-size: 15px;
+    }
+
+    
+    .recently-viewed {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .saved-products{
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    .saved-products h1 {
+        font-size: 37px;
+    }
+
+    .saved-products i {
+        font-size: 30px;
+    }
+
+    .saved-products p {
+        font-size: 14px;
+    }
+
+    .recently-viewed ul li {
+        padding: 15px 0;
+    }
+
+    .item-title {
+        font-size: 16px;
+    }
+
+    .item-date {
+        font-size: 14px;
     }
 
 

@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Accounts</title>
 </head>
 <body>
-    <?php include'../main/header.php'; ?>
-    <div class="seller-dashboard">
-       
-    </div>
-    <?php include'../main/footer.php'; ?>
+
+<?php include'sidebar.php'; ?>
+
 </body>
 </html>

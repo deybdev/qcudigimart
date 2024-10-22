@@ -12,14 +12,17 @@ function loginUser($email, $password, $conn) {
     
     $check_sellers = mysqli_query($conn, "SELECT * FROM `seller` WHERE s_email ='$email'") or die('Query failed');
 
-    if (mysqli_num_rows($check_customers) > 0) {
+    $check_admin = mysqli_query($conn, "SELECT * FROM `admin` WHERE a_email ='$email'") or die('Query failed');
 
+    if (mysqli_num_rows($check_customers) > 0) {
         $row = mysqli_fetch_assoc($check_customers);
         if (password_verify($password, $row['c_password'])) {
+            // Set session variables for the customer
+            $_SESSION['customer_id'] = $row['c_id'];
             $_SESSION['customer_first_name'] = $row['c_first_name'];
             $_SESSION['customer_last_name'] = $row['c_last_name'];
             $_SESSION['customer_email'] = $row['c_email'];
-            $_SESSION['customer_id'] = $row['c_id'];
+            $_SESSION['profile_image'] = !empty($row['profile_image']) ? $row['profile_image'] : 'profile-placeholder.png'; // Use placeholder if no image
             return ['status' => true, 'user_type' => 'customer'];
         } else {
             return ['status' => false, 'message' => 'Incorrect password!'];
@@ -27,7 +30,7 @@ function loginUser($email, $password, $conn) {
     } elseif (mysqli_num_rows($check_sellers) > 0) {
         $row = mysqli_fetch_assoc($check_sellers);
         if (password_verify($password, $row['s_password'])) {
-
+            // Set session variables for the seller
             $_SESSION['seller_first_name'] = $row['s_first_name'];
             $_SESSION['seller_last_name'] = $row['s_last_name'];
             $_SESSION['seller_email'] = $row['s_email'];
@@ -37,10 +40,18 @@ function loginUser($email, $password, $conn) {
         } else {
             return ['status' => false, 'message' => 'Incorrect password!'];
         }
-    } else {
-        return ['status' => false, 'message' => 'Email not found'];
+    }elseif(mysqli_num_rows($check_admin) > 0){
+        $row = mysqli_fetch_assoc($check_admin);
+        if(password_verify($password, $row['a_password'])){
+            $_SESSION['admin_id'] = $row['a_id'];
+            $_SESSION['admin_email'] = $row['a_email'];
+            return ['status' => true, 'user_type' => 'admin'];
+        } else {
+            return ['status' => false, 'message' => 'Incorrect admin password!'];
+        }
     }
 }
+
 
 // REGISTER FUNCTION
 function registerUser($conn, $first_name, $last_name, $email, $password, $cpassword, $user_type, $store_name = null) {
@@ -86,6 +97,7 @@ function registerUser($conn, $first_name, $last_name, $email, $password, $cpassw
 
     return ['status' => true, 'message' => 'Registration successful!'];
 }
+
 
 
 ?>

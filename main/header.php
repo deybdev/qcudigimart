@@ -13,12 +13,21 @@ include '../config/config.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Header</title>
 </head>
 
+<style>
+
+</style>
+
 <body>
     <div class="navbar">
+        <div class="hamburger" onclick="toggleBar()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div class="logo-container">
             <div class="image-logo">
                 <img src="../assets/qcu-logo.png" alt="Logo">
@@ -33,7 +42,7 @@ include '../config/config.php';
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Browse</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="../main/about.php">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>
@@ -61,7 +70,7 @@ include '../config/config.php';
                         <p>Edit Page</p>
                         <span class="fa-solid fa-chevron-right"></span>
                     </a>
-                    <a href="../seller/products.php" class="sub-menu-link">
+                    <a href="../seller/dashboard.php" class="sub-menu-link">
                         <i class="fa-solid fa-basket-shopping"></i>
                         <p>Manage Products</p>
                         <span class="fa-solid fa-chevron-right"></span>
@@ -113,7 +122,9 @@ include '../config/config.php';
                         <span class="fa-solid fa-chevron-right"></span>
                     </a>
                 </div>
+                
             </div>
+            
 
             <!-- If no one is logged in -->
             <?php else: ?>
@@ -125,6 +136,17 @@ include '../config/config.php';
         </div>
     </div>
 
-    <script src="../script.js"></script>
+    <script src="../script.js">
+    </script>
+    <script>
+    function toggleBar() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+    
+        hamburger.classList.toggle('active'); // Toggle the active class
+        navLinks.classList.toggle('active'); // Toggle the nav links visibility
+    }
+
+    </script>
 </body>
 </html>
